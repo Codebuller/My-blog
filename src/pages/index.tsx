@@ -11,7 +11,7 @@ export default function Home ({Logo}:{Logo:string}) {
   const [active,setActive] = useState(false);
   
   const rasparse = (text:string,priority:number):any =>{
-    let result:[] = []; 
+    let result:any[] = []; 
     
     let start = 0;
     for(let i = 0;i<text.length;++i){
@@ -56,7 +56,7 @@ export default function Home ({Logo}:{Logo:string}) {
   )
 }
 export const getStaticProps: GetStaticProps = async () =>{
-  const allPosts = await client.getEntries({
+  const allPosts:any = await client.getEntries({
     content_type: 'imageLogo'
   })
   const Logo = allPosts.items[0].fields.img.fields.file.url;

@@ -1,18 +1,19 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ReactElement, RefObject } from 'react';
 import styles from './Iteractivebg.module.css'
 
 import { Html, useGLTF } from '@react-three/drei'
 import FlexText from '../flexText/flextText';
+import { Vector3 } from 'three';
 
 const Iteractivebg = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (event) => {
+  const handleMouseMove = (event:any) => {
     setMousePosition({ x: event.clientX, y: event.clientY });
   };
   const rasparse = (text:string,priority:number):any =>{
-    let result:[] = []; 
+    let result:any[] = []; 
     
     let start = 0;
     for(let i = 0;i<text.length;++i){
@@ -35,13 +36,13 @@ const Iteractivebg = () => {
       <Html position={[-9,3,0]}>
       
         <h1  className={styles.flexText}>
-            {rasparse('Привет,',1).map((el:ReactElement)=>el)}
+            {rasparse('Привет,',1).map((el:ReactElement|Element)=>el)}
           </h1>
           <h1  className={styles.flexText}>
-            {rasparse('Я - Митрофанов Иван,',2).map((el:ReactElement)=>el)}
+            {rasparse('Я - Митрофанов Иван,',2).map((el:ReactElement|Element)=>el)}
           </h1>
           <h1   className={styles.flexText}>
-            {rasparse('Frontend-разработчик',3).map((el:ReactElement)=>el)}
+            {rasparse('Frontend-разработчик',3).map((el:ReactElement|Element)=>el)}
           </h1>
         
       </Html>
@@ -49,7 +50,7 @@ const Iteractivebg = () => {
   )
 };
 
-export function Models({ mouse }) {
+export function Models({ mouse }:{mouse:{x:number,y:number}}) {
   const size = useThree((state) => state.size);
   const mouseX = ((mouse.x - size.left) / size.width) * 2 - 1;
   const mouseY = -((mouse.y - size.top) / size.height) * 2 + 1;
@@ -57,11 +58,11 @@ export function Models({ mouse }) {
   const targetRotationX = -mouseY * ROTATION_FACTOR;
     const targetRotationY = -mouseX * ROTATION_FACTOR;
   
-  const diaryRef = useRef();
-  const penRef = useRef();
-  const cupRef = useRef();
-  const lisaRef = useRef();
-  const jornalRef = useRef();
+  const diaryRef = useRef<any>();
+  const penRef = useRef<any>();
+  const cupRef = useRef<any>();
+  const lisaRef = useRef<any>();
+  const jornalRef = useRef<any>();
   useFrame(() => {
     
 
@@ -84,7 +85,7 @@ export function Models({ mouse }) {
   });
 
   // Функция для линейной интерполяции
-  const lerp = (start, end, alpha) => {
+  const lerp = (start:number, end:number, alpha:number) => {
     return start * (1 - alpha) + end * alpha;
   };
 
@@ -110,8 +111,8 @@ export function Models({ mouse }) {
   )
 }
 
-const Cup = ({ position }) => {
-  const { nodes, materials } = useGLTF('/models/cup/cup-transformed.glb')
+const Cup = ({position}:{position:any}) => {
+  const { nodes, materials }:any = useGLTF('/models/cup/cup-transformed.glb')
 
   return (
     <group scale={10} position={position} dispose={null}>
@@ -123,8 +124,8 @@ const Cup = ({ position }) => {
   )
 }
 
-const Diary = ({position}:{position:number[]}) =>{
-    const { nodes, materials } = useGLTF('/models/diary/diary-transformed.glb')
+const Diary = ({position}:{position:any}) =>{
+    const { nodes, materials }:any = useGLTF('/models/diary/diary-transformed.glb')
     return(
         <group  position={position} dispose={null} rotation={[0, Math.PI/5, 0]}>
         <mesh scale={0.01}  geometry={nodes.Object_2.geometry} material={materials['Notebook_-_Bookmark_material_aaec1194-aed2-438d-8e83-467bdea73316']}  />
@@ -134,8 +135,8 @@ const Diary = ({position}:{position:number[]}) =>{
       </group>
     )
 }
-const Pen = ({position}:{position:number[]}) =>{
-    const { nodes, materials } = useGLTF('/models/pen/pen-transformed.glb')
+const Pen = ({position}:{position:any}) =>{
+    const { nodes, materials }:any = useGLTF('/models/pen/pen-transformed.glb')
     return (
         <group position={position} scale={0.08} dispose={null}>
         <mesh geometry={nodes.pCylinder1_aiStandardSurface1_0.geometry} material={materials.aiStandardSurface1} position={[0.479, 4.256, 1.742]} rotation={[-0.492, 0.245+Math.PI/5, 1.34]} scale={[1.095, 1, 1.179]} />
@@ -143,8 +144,8 @@ const Pen = ({position}:{position:number[]}) =>{
       </group>
     )
 }
- function Jornal({position}:{position:number[]}) {
-    const { nodes, materials } = useGLTF('/models/new/scene-transformed.glb')
+ function Jornal({position}:{position:any}) {
+    const { nodes, materials }:any = useGLTF('/models/new/scene-transformed.glb')
     return (
       <group position={position} dispose={null}>
         <mesh geometry={nodes.Journal_journal_0.geometry} material={materials.journal} rotation={[0, -Math.PI*1.3, 1]} scale={8} />
@@ -152,9 +153,9 @@ const Pen = ({position}:{position:number[]}) =>{
     )
   }
   
-function Lisa({position}:{position:number[]}) {
+function Lisa({position}:{position:any}) {
     
-    const { nodes, materials } = useGLTF('/models/lisa/scene-transformed.glb')
+    const { nodes, materials }:any = useGLTF('/models/lisa/scene-transformed.glb')
   return (
     <group scale={0.02} position={position} dispose={null}>
       <mesh geometry={nodes.Object_4.geometry} material={materials.Material_27} position={[-8.494, 51.339, -15.709]} rotation={[0, 0, -Math.PI]} />
