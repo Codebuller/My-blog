@@ -1,0 +1,65 @@
+.flexText{
+    
+    z-index:-2;
+    height:2.1em;
+    overflow: hidden;
+    
+}
+.hello{
+    align-self: center;
+    justify-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 2;
+    gap: 15%;
+  }
+.left{
+    
+    
+}
+.btn{
+    width: 13vmax;
+    height: 7vmin;
+}
+.picture{
+  margin-top: 5%;
+  justify-self: center;
+    grid-column: 2;
+    grid-row: 1;
+    width: 45%;
+    height: 90%;
+    -webkit-clip-path: polygon(0 30%,50% 0,100% 30%,100% 70%,50% 100%,0 70%);
+z-index:-1;
+}
+.background{
+    position: relative;
+    background-color:'#f8f8f8';
+    display: grid;
+    margin-left: 3%;
+    margin-right: 3%;
+    grid-template-columns: 47% 47%;
+    grid-template-rows: 60vh 10vh 40vh;
+    row-gap: 30px;
+}
+.canvas{
+    justify-content: center;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 3;
+    width: 80%;
+    height: 100%;
+}
+.test{
+    position: absolute;
+    z-index: 0;
+    top: 47px;
+    width: 100vw;
+    height: 60vh;
+}

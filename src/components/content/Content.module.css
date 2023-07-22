@@ -1,0 +1,32 @@
+.post{
+   
+    grid-column:2;
+    width:100%;
+    height :100%;
+}
+.picture{
+    align-items: center;
+    margin-left: 25%;
+    width: 50%;
+    height: 50%;
+   
+}
+.text{
+    margin-left:25%;
+    margin-right:25%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    font-size: 1.15em;
+    line-height: 1em;
+    max-height: 8em;
+    white-space: pre-wrap; /* css-3 */
+   
+   
+}
+.title{
+    text-align:center;
+    font-size:2em;
+    letter-spacing: 1px;
+}

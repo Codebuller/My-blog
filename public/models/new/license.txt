@@ -1,0 +1,11 @@
+Model Information:
+* title:	Leather Journal - 3D Model Asset
+* source:	https://sketchfab.com/3d-models/leather-journal-3d-model-asset-df24ab0704e64ee7b5e1421cb49d88f5
+* author:	Lawrence Pompey (https://sketchfab.com/lawrencepompey)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Leather Journal - 3D Model Asset" (https://sketchfab.com/3d-models/leather-journal-3d-model-asset-df24ab0704e64ee7b5e1421cb49d88f5) by Lawrence Pompey (https://sketchfab.com/lawrencepompey) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

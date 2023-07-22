@@ -1,0 +1,14 @@
+.hello{
+    align-self: center;
+    justify-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+}
+.flexText{
+    
+    z-index:-2;
+    display:flex;
+    overflow: hidden;
+    height:2.1em;
+}
