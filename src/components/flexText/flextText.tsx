@@ -17,7 +17,8 @@ const FlexText = ({text,priority}:{text:string,priority:number})=>{
         setAnimating(true);
         }    
     return (
-        <span 
+        <span
+        key={priority} 
         style={{fontSize:'max(24px,3vw)',display:'inline-block'}} 
         className={active ? animating ? `${styles.blast} ${styles.first} ${styles.second}`   : styles.blast : styles.unvisiable}
         onMouseEnter={()=>Animate()}

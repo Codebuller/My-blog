@@ -18,11 +18,11 @@ const Iteractivebg = () => {
     let start = 0;
     for(let i = 0;i<text.length;++i){
       if(text[i]===' '){
-        result.push(<span style={{width:'0.5em'}}> </span>)
+        result.push(<span key={i.toString()+priority.toString()} style={{width:'0.5em'}}> </span>)
         continue;
       }
         start=i*0.04+priority;    
-   result.push(<FlexText priority={start} text={text[i]}/>)
+   result.push(<FlexText key={i.toString()+priority.toString()} priority={start} text={text[i]}/>)
     }
    return result;
   }
@@ -35,13 +35,13 @@ const Iteractivebg = () => {
       </group>
       <Html position={[-9,3,0]}>
       
-        <h1  className={styles.flexText}>
+        <h1 key={'1'} className={styles.flexText}>
             {rasparse('Привет,',1).map((el:ReactElement|Element)=>el)}
           </h1>
-          <h1  className={styles.flexText}>
+          <h1 key={'2'}  className={styles.flexText}>
             {rasparse('Я - Митрофанов Иван,',2).map((el:ReactElement|Element)=>el)}
           </h1>
-          <h1   className={styles.flexText}>
+          <h1 key={'3'}  className={styles.flexText}>
             {rasparse('Frontend-разработчик',3).map((el:ReactElement|Element)=>el)}
           </h1>
         

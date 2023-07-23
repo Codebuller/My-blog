@@ -27,7 +27,6 @@ export default function Home ({Logo}:{Logo:string}) {
   const [size,setSize] = useState([1280,750])
   useEffect(
     ()=>{setSize([window.innerWidth,window.innerHeight])
-    console.log(size)
     },
   [])
   
