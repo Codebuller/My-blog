@@ -1,8 +1,5 @@
 import React from 'react'
-import { Layout, Space } from 'antd';
-import Navbar from '@/components/navbar/Navbar';
 import SkillSphere from '@/components/skillsSphere/SkillSphere';
-const { Header, Footer, Sider, Content } = Layout;
 export default function Blog () {
     return (
       <>

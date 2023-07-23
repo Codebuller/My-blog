@@ -1,12 +1,9 @@
 import React, { useEffect, useState }  from 'react'
-import { Layout, Space } from 'antd';
-import Navbar from '@/components/navbar/Navbar';
 import client from '../../contentful';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Content from '@/components/content/Content';
 import Loader from '@/components/loader/Loader';
-const { Header, Footer, Sider} = Layout;
 export default function Blog ({title,allPosts}:{title:string,allPosts:any}) {
   const [loading,setLoading] = useState(false);
   
@@ -29,7 +26,7 @@ export default function Blog ({title,allPosts}:{title:string,allPosts:any}) {
        
         
         <div style={{paddingTop:'75px'}} className='conteiner' >
-        {allPosts.items.map((el:{})=> <Content data={el}/>
+        {allPosts.items.map((el:{},index:number)=> <Content key={index} data={el}/>
           )}
           
         </div>

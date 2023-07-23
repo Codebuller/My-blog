@@ -5,7 +5,7 @@ import styles from './Content.module.css'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Link from 'next/link';
 const { Meta } = Card;
-const Content = ({data}) => {
+const Content = ({data}:any) => {
     
     const img = data.fields.image.fields.file.url;
     const title = data.fields.title

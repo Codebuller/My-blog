@@ -3,12 +3,11 @@ import { useRouter } from "next/router";
 import client from '../../../contentful';
 import { GetStaticPaths, GetStaticProps} from 'next';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Navbar from "@/components/navbar/Navbar";
 import Head from "next/head";
 import styles from './[id].module.css'
 import Image from "next/image";
 import Loader from "@/components/loader/Loader";
-const BlogPage = ({Post}) =>{
+const BlogPage = ({Post}:any) =>{
     const [loading,setLoading] = useState(false);
  useEffect(()=>{
   const go = setInterval(()=>{
@@ -49,7 +48,7 @@ return(
     const allPosts = await client.getEntries({
         content_type: 'post'
       })
-      const allSlugs:string[] =[];
+      const allSlugs:any =[];
       allPosts.items.map((el)=>{allSlugs.push({
         params:{id: el.sys.id}
         })});
@@ -58,8 +57,8 @@ return(
         fallback: 'blocking' //indicates the type of fallback
     }
 }
-export const getStaticProps:GetStaticProps = async (context) =>{
-    const id = context.params.id;
+export const getStaticProps:GetStaticProps = async (context:any) =>{
+    const id:any = context.params.id;
     const allPosts = await client.getEntries({
         content_type: 'post'
       })

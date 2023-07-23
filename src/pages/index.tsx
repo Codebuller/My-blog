@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/index.module.css'
 import FlexText from '@/components/flexText/flextText';
 import { Button } from 'antd';
@@ -8,28 +8,6 @@ import client from '../../contentful';
 import SkillSphere from '@/components/skillsSphere/SkillSphere';
 import Iteractivebg from '@/components/interactivebg/Interactivebg';
 export default function Home ({Logo}:{Logo:string}) {
-  const [active,setActive] = useState(false);
-  
-  const rasparse = (text:string,priority:number):any =>{
-    let result:any[] = []; 
-    
-    let start = 0;
-    for(let i = 0;i<text.length;++i){
-      if(text[i]===' '){
-        result.push(<span> </span>)
-        continue;
-      }
-        start=i*0.04+priority;    
-   result.push(<FlexText priority={start} text={text[i]}/>)
-    }
-   return result;
-  }
-  const [size,setSize] = useState([1280,750])
-  useEffect(
-    ()=>{setSize([window.innerWidth,window.innerHeight])
-    },
-  [])
-  
   return (<>
     <div className={styles.background}>
     
